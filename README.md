@@ -20,6 +20,6 @@
 </div><br/>
 
 <hr>
-<h3>Click <a href="https://www.youtube.com/watch?v=01sAkU_NvOY&t=292s">here</a> to go to the playlist of the course.</h3>
+<h3>Click <a href="https://www.youtube.com/watch?v=01sAkU_NvOY&t=292s">here</a> to go to the playlist of the course</h3>
 
 
