@@ -12,7 +12,7 @@ xp,yp=0,0
 imgCanvas=np.zeros((480,640,3),np.uint8)
 pTime=0
 cTime=0
-folderPath=r"imgs/PaintImages"
+folderPath=r"../imgs/PaintImages"
 myList=os.listdir(folderPath)
 print(myList)
 overlaylist=[]
