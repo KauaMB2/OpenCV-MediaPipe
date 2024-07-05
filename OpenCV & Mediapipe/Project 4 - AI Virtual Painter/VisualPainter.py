@@ -12,7 +12,7 @@ xp,yp=0,0
 imgCanvas=np.zeros((480,640,3),np.uint8)
 pTime=0
 cTime=0
-folderPath=r"../imgs/PaintImages"
+folderPath=r"imgs/PaintImages"
 myList=os.listdir(folderPath)
 print(myList)
 overlaylist=[]
@@ -96,8 +96,8 @@ while True:
     frame[0:79,0:640]=header
     #frame=cv.addWeighted(frame,0.5,imgCanvas,0.5,0)
     cv.imshow("Cam",frame)
-    cv.imshow("imgCanvas",imgCanvas)
-    cv.imshow("imgInv",imgInv)
+    #cv.imshow("imgCanvas",imgCanvas)
+    #cv.imshow("imgInv",imgInv)
     key=cv.waitKey(1)#ESC = 27
     if key==27:#Se apertou o ESC
         break

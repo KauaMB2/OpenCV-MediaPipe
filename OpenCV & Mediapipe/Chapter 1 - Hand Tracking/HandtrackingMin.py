@@ -19,16 +19,18 @@ max_num_hands=> Número máximo de mãos na figura.
 min_detection_confidence=> Mínima de confiança na detecção.
 min_tracking_confidence=> Mínima de confiança no rastreamento."""
 
+print("HERE")
 
 while True:
     _,frame=cap.read()
+    print(_)
     frameRGB=cv.cvtColor(frame,cv.COLOR_BGR2RGB)
     results=hands.process(frameRGB)
     #print(results.multi_hand_landmarks)#Fala se algo foi ou não rastreado na câmera
     if(results.multi_hand_landmarks):#Se algo for detectado...
         for handLms in results.multi_hand_landmarks:#Pega os landmarks de cada mão detectada dentro de "results.multi_hand_landmarks"
             mpDraw.draw_landmarks(frame,handLms,mpHands.HAND_CONNECTIONS)#Desenha cada landmark e cada linha entre os landsmarks em cada mão detectada
-            for id,lm in enumerate(handLms.landmark):#Pega o id e as coordenadas(x,y,z) de cada landmark que forma a mão
+            for id, lm in enumerate(handLms.landmark):#Pega o id e as coordenadas(x,y,z) de cada landmark que forma a mão
                 #print(f"{id}\n{lm}")
                 h,w,c=frame.shape#Pega a altura(h), largura(w) e os canais(c) dos frames
                 cx,cy=int(lm.x*w),int(lm.y*h)#Cordenada x e y dos landmarks em relação ao frame inteiro

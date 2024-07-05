@@ -19,6 +19,8 @@ cLocX,cLocY=0,0
 detector=hm.handDetector()
 wScr,hScr=autopy.screen.size()
 print(wScr,hScr)
+lastX3=None
+lastY3=None
 while True:
     #1. Import image
     _,frame=cap.read()
@@ -45,7 +47,12 @@ while True:
             cLockX=pLocX+(x3-pLocX)/smoothening
             cLocky=pLocY+(x3-pLocY)/smoothening
             #7. Move mouse
-            autopy.mouse.move(x3,y3)
+            try:
+                autopy.mouse.move(x3,y3)
+                lastX3=x3
+                lastY3=y3
+            except:
+                autopy.mouse.move(lastX3,lastY3)
             pLocX,pLocY=cLocX,cLocY
         #8. Both index and middle fingers are up: Clicking Mode
         if fingers[1]==True and fingers[2]==True:

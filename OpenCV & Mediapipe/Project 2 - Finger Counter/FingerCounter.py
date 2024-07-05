@@ -12,7 +12,7 @@ wCam, hCam = 640, 480
 cap = cap=cv.VideoCapture(0,cv.CAP_DSHOW)
 cap.set(3, wCam)
 cap.set(4, hCam)
-folderPath = r"../imgs/FingerImages"
+folderPath = r"imgs/FingerImages"
 myList = os.listdir(folderPath)
 print(myList)
 overImageList = []

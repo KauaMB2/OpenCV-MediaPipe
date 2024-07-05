@@ -28,29 +28,13 @@ class FaceDetector():
                 cv.rectangle(frame, (bbox[0], bbox[1]-40), (bbox[0]+bbox[2], bbox[1]),(0, 0, 0), -1)#cor=(B,G,R)
                 cv.putText(frame,f"{int(detection.score[0]*100)}%",(bbox[0]+5,bbox[1]-10),cv.FONT_HERSHEY_PLAIN,2,(0,255,0),4,cv.LINE_AA)
                 cv.rectangle(frame,bbox,(255,0,255),2)#Desenha um retângulo ao redor do rosto
-                self.fancyDraw(frame,bbox)#Chama função para desenhar as linhas mais grossas nas extremidades do bouding box
                 points=detection.location_data.relative_keypoints#Pega a localização de todos os pontos do rosto
                 for point in points:#Pega todos os pontos no rosto
                     cx=int(point.x*w)
                     cy=int(point.y*h)
                     cv.circle(frame,(cx,cy),3,(255,0,0),cv.FILLED)#Desenha todos os pontos no rosto
         return frame,bboxs
-    def fancyDraw(self,frame,bbox,l=30,t=10):
-        x,y,w,h=bbox
-        x1,y1=x+w,y+h
-        #DESENHA AS LINHAS MAIS GROSSAS NAS EXTREMIDADES DO BOUNDING BOX
-        #Top Left x,y
-        cv.line(frame,(x,y),(x+l,y),(255,0,255),t)
-        cv.line(frame,(x,y),(x,y+l),(255,0,255),t)
-        #Top Right x1,y
-        cv.line(frame,(x1,y),(x1-l,y),(255,0,255),t)
-        cv.line(frame,(x1,y),(x1,y+l),(255,0,255),t) 
-        #Bottom Left x,y1
-        cv.line(frame,(x,y1),(x+l,y1),(255,0,255),t)
-        cv.line(frame,(x,y1),(x,y1-l),(255,0,255),t) 
-        #Bottom Left x1,y1
-        cv.line(frame,(x1,y1),(x1-l,y1),(255,0,255),t)
-        cv.line(frame,(x1,y1),(x1,y1-l),(255,0,255),t) 
+    
         
 def main():
     #cap=cv.VideoCapture(r"videos\9.mp4")
